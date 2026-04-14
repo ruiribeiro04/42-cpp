@@ -1,37 +1,53 @@
-NAME		= megaphone
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: ruiferma <ruiferma@student.42porto.com>    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2025/04/11 10:00:00 by ruiferma          #+#    #+#              #
+#    Updated: 2025/04/11 10:00:00 by ruiferma         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
-SRCS_DIR	= ./
-OBJ_DIR		= obj/
+# Name of the executable
+NAME = megaphone
 
-SRCS		= megaphone.cpp
-OBJS		= $(SRCS:$(SRC_DIR)%.cpp=$(OBJ_DIR)%.o)
+# Compiler and flags
+# -Wall: Enable all warnings
+# -Wextra: Enable extra warnings
+# -Werror: Treat warnings as errors
+# -std=c++98: Use C++98 standard (required by 42)
+CXX = c++
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
-CC			= c++
-RM			= rm -rf
-CFLAGS		= -Wall -Wextra -Werror -std=c++98 -pedantic-errors -g
+# Source files
+SRC = megaphone.cpp
 
-all:	$(NAME)
+# Object files (automatically generated from .cpp files)
+OBJ = $(SRC:.cpp=.o)
 
-$(NAME):	$(OBJ_DIR) $(OBJS)
-			$(CC) $(CFLAGS) $(OBJS) -o $@
+# Default target: build the program
+all: $(NAME)
 
-$(OBJ_DIR):
-	mkdir -p $(OBJ_DIR)
+# Link object files to create the executable
+$(NAME): $(OBJ)
+	$(CXX) $(CXXFLAGS) $(OBJ) -o $(NAME)
 
-$(OBJ_DIR)%.o: $(SRC_DIR)%.cpp
-	$(CC) $(CFLAGS) -c $< -o $@
+# Compile source files to object files
+%.o: %.cpp
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
+# Remove object files
 clean:
-	$(RM) $(OBJ_DIR)
+	rm -f $(OBJ)
 
-fclean:	clean
-	$(RM) $(NAME)
+# Remove object files and executable
+fclean: clean
+	rm -f $(NAME)
 
-re:		fclean $(NAME)
+# Rebuild everything from scratch
+re: fclean all
 
-test:	$(NAME)
-	./megaphone "shhhhh... I think the students are asleep..."
-	./megaphone Damnit " ! " "Sorry students, I thought this thing was off."
-	./megaphone
-
-.PHONY:		all clean fclean re
+# Declare these as phony targets (not actual files)
+.PHONY: all clean fclean re
