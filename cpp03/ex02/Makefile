@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ruizenna <ruizenna@student.42porto.com>    +#+  +:+       +#+         #
+#    By: ruiferna <ruiferna@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/04/11 15:40:00 by ruizenna          #+#    #+#              #
-#    Updated: 2025/04/11 15:40:00 by ruizenna         ###   ########.fr        #
+#    Created: 2025/04/11 15:20:00 by ruiferna          #+#    #+#              #
+#    Updated: 2026/06/28 10:30:34 by ruiferna         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 

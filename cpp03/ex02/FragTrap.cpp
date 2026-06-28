@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   FragTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ruizenna <ruizenna@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: ruiferna <ruiferna@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/11 15:40:00 by ruizenna          #+#    #+#             */
-/*   Updated: 2025/04/11 15:40:00 by ruizenna         ###   ########.fr       */
+/*   Created: 2025/04/11 15:20:00 by ruiferna          #+#    #+#             */
+/*   Updated: 2026/06/28 10:37:46 by ruiferna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,6 @@ FragTrap::FragTrap(void) : ClapTrap("Default FragTrap")
 	std::cout << "FragTrap default constructor called for " << this->_name << std::endl;
 }
 
-/*
- * Parameterized Constructor
- * Creates a FragTrap with a custom name
- */
 FragTrap::FragTrap(std::string name) : ClapTrap(name)
 {
 	this->_hitPoints = 100;
@@ -44,20 +40,12 @@ FragTrap::FragTrap(std::string name) : ClapTrap(name)
 	std::cout << "FragTrap parameterized constructor called for " << this->_name << std::endl;
 }
 
-/*
- * Copy Constructor
- * Creates a new FragTrap as a copy of an existing one
- */
 FragTrap::FragTrap(FragTrap const& src) : ClapTrap(src)
 {
 	std::cout << "FragTrap copy constructor called" << std::endl;
 	*this = src;
 }
 
-/*
- * Copy Assignment Operator
- * Copies values from another FragTrap
- */
 FragTrap&	FragTrap::operator=(FragTrap const& rhs)
 {
 	std::cout << "FragTrap copy assignment operator called" << std::endl;
@@ -68,24 +56,11 @@ FragTrap&	FragTrap::operator=(FragTrap const& rhs)
 	return (*this);
 }
 
-/*
- * Destructor
- * Called when FragTrap is destroyed
- * Destruction order: FragTrap destructor → ClapTrap destructor
- */
 FragTrap::~FragTrap(void)
 {
 	std::cout << "FragTrap destructor called for " << this->_name << std::endl;
 }
 
-/*
- * High Fives Guys Function
- * Special ability unique to FragTrap
- * Displays a positive high-fives request
- *
- * This function demonstrates that each derived class can have
- * its own unique special abilities that don't exist in the base class
- */
 void	FragTrap::highFivesGuys(void)
 {
 	if (this->_hitPoints <= 0)
