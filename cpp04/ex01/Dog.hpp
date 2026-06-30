@@ -1,39 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongCat.hpp                                       :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ruiferna <ruiferna@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/30 09:30:00 by ruiferna          #+#    #+#             */
-/*   Updated: 2026/06/30 10:53:20 by ruiferna         ###   ########.fr       */
+/*   Updated: 2026/06/30 11:26:51 by ruiferna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WRONGCAT_HPP
-# define WRONGCAT_HPP
+#ifndef DOG_HPP
+# define DOG_HPP
 
-#include "WrongAnimal.hpp"
+#include "Animal.hpp"
+#include "Brain.hpp"
 
-/*
- * WrongCat - Derived class from WrongAnimal
- *
- * makeSound() is "overridden" but, since WrongAnimal::makeSound() is NOT
- * virtual, calling makeSound() through a WrongAnimal pointer will NOT
- * dispatch to WrongCat::makeSound() — it will call WrongAnimal::makeSound().
- *
- * However, when used directly as a WrongCat (not through a WrongAnimal
- * pointer), the override behaves as expected.
- */
-class WrongCat : public WrongAnimal
+class Dog : public Animal
 {
+	private:
+		Brain*	_brain;
+
 	public:
-		WrongCat(void);
-		WrongCat(WrongCat const& src);
-		WrongCat&	operator=(WrongCat const& rhs);
-		~WrongCat(void);
+		Dog(void);
+		Dog(Dog const& src);
+		Dog&	operator=(Dog const& rhs);
+		~Dog(void);
 
 		void	makeSound(void) const;
+
+		// Helper used to demonstrate that the deep copy really duplicated
+		// the Brain and not just the pointer.
+		Brain&		getBrain(void);
+		Brain const&	getBrain(void) const;
 };
 
 #endif
