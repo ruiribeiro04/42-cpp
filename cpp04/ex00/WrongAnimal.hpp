@@ -6,7 +6,7 @@
 /*   By: ruiferna <ruiferna@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/30 09:30:00 by ruiferna          #+#    #+#             */
-/*   Updated: 2026/06/30 10:34:47 by ruiferna         ###   ########.fr       */
+/*   Updated: 2026/07/01 09:46:32 by ruiferna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,6 @@
 
 /*
  * WrongAnimal - Deliberately incorrect version of Animal
- *
- * The makeSound() member function is NOT declared virtual here.
- * This means that calling makeSound() through a WrongAnimal pointer
- * pointing to a WrongCat will resolve to WrongAnimal::makeSound(),
- * not WrongCat::makeSound().
- *
- * This class exists to demonstrate the importance of the `virtual`
- * keyword when implementing polymorphism.
- *
- * Orthodox Canonical Form is implemented.
  */
 class WrongAnimal
 {
